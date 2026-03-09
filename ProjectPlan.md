@@ -17,7 +17,7 @@ All data from St. Louis fed (WTI and CPI, can be downloaded as CSV or pinged wit
 
 
 Timeline
-Before gathering our data, the first 
+Before gathering our data, the first step we will take is writing a short background document to accompany the data. We will assume that readers of our work will be familiar with basic economic concepts, but we want to ensure that all readers are able to make the most of our work. This background document will be useful when it comes time to write the final report
 
 
 
@@ -26,3 +26,4 @@ Constraints (Andres)
 
 
 Gaps (Henrik)
+
