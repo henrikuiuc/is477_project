@@ -14,7 +14,9 @@ Simply put, we want to see how oil volatility correlates with inflation. Inheren
 Datasets (Andres)
 All data from St. Louis fed (WTI and CPI, can be downloaded as CSV or pinged with API)
 
+U.S. Energy Information Administration, Crude Oil Prices: West Texas Intermediate (WTI) - Cushing, Oklahoma [DCOILWTICO], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/DCOILWTICO, March 8, 2026.
 
+Organization for Economic Co-operation and Development, Consumer Price Index: All Items: Total for United States [CPALTT01USM657N], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/CPALTT01USM657N, March 8, 2026.
 
 Timeline
 Before gathering our data, the first step we will take is writing a short background document to accompany the data. We will assume that readers of our work will be familiar with basic economic concepts, but we want to ensure that all readers are able to make the most of our work. This background document will be useful when it comes time to write the final report.
@@ -32,6 +34,7 @@ The data also represents spot prices in a specific place. While WTI is a global 
 We should also be aware that extreme events can create outliers that look like data errors but are actually real market phenomena. 
 
 Gaps (Henrik)
+
 
 
 
