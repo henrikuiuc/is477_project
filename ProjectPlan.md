@@ -21,9 +21,17 @@ Before gathering our data, the first step we will take is writing a short backgr
 
 
 
-Constraints (Andres)
+Constraints: There are some constraints we should keep in mind that could affect our analysis. First, this is a daily series, but it only includes prices on trading days when the market is actually open. This means the timeline will have gaps on weekends and holidays, which can complicate time series analysis if we expect perfectly consecutive dates. We will need to decide whether to fill the miissing values, interpolate them, or just work around them.
+
+Another consideration is that these prices are nomminal, meaning they have not been adjusted for inflation. When doing any kind of long-term trend analysis spanning multiple years, the raw numbers might be misleading because a dollar in 2010 does not have the same purchasing power as a dollar today. So we need to keep in mid that context matters in this cases.
+
+The data also represents spot prices in a specific place. While WTI is a global benchmark, these are not future prices and do not directly reflect what traders are paying for contracts down the line. if we want to forecast or understand market expectations, we might actually need future curve data. Aditionally, the series is not seasonally adjusted, which means any regular seasonal patterns in oil demand and pricing remain in the data, potentialy masking or disorting other signalsif we are not accounting for them.
+
+We should also be aware that extreme events can create outliers that look like the data errors but are actually real market phenomena. 
+
 
 
 
 Gaps (Henrik)
+
 
