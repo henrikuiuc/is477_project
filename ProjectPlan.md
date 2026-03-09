@@ -1,5 +1,5 @@
 Overview:
-Throughout the course of the project, we want to answer a financial question relating to commodity markets. Specifically, we want to see how volatility in oil prices (not prices themselves) relates to the rate of inflation. We will do this by seeing how oil volatility, which we will calculate, mathematically correlates with inflation. We will use scipy cross-correlation as our metric. This project is inspired by the recent rapid shifts in the price of oil.
+Throughout the course of the project, we want to answer a financial question relating to commodity markets. Specifically, we want to see how volatility in oil prices (not prices themselves) relates to the rate of inflation. We will do this by seeing how oil volatility, which we will calculate, mathematically correlates with inflation. We will use scipy cross-correlation as our metric. This project is inspired by the recent rapid shifts in the price of oil, and how oil volatility can affect the wider economy.
 
 To answer our question, we will first identify a source for oil data. For the purpose of this project, we will focus on the American economy, so our oil price data will come from historical data on West Texas Intermediate oil prices. For inflation data, we will use CPI, or consumer price index. CPI tracks the change in price of a ‘basket’ of different goods. Fortunately, both of these items are easily found through FRED (Federal Reserve Bank St. Louis), and they can be loaded into Python with the same API we’ve used for class.
 
@@ -22,7 +22,7 @@ Timeline:
 Before gathering our data, the first step we will take is writing a short background document to accompany the data. We will assume that readers of our work will be familiar with basic economic concepts, but we want to ensure that all readers are able to make the most of our work. This background document will be useful when it comes time to write the final report.
 Next, we will get the data loaded into Python via either manual download or the FRED API. As of right now we are leaning towards manual download, as we want to ensure that our API keys are kept private. To ensure that results are reproducible, we will specify a date range that we sample from (which is especially important given recent moves in oil prices).
 Once the data is loaded in, we will need to calculate volatility. The only input for this calculation is price, so the price data from WTI is sufficient. Since volatility is a measure for a given period, we will have the "volatility window" match the frequency of inflation data. With volatility and inflation data having the same frequency, our data analysis will be easier.
-With data ready, we will be able to conduct our analysis by comparing 2 time-series (volatility and inflation) to see their correlation.
+With data ready, we will be able to conduct our analysis by comparing 2 time-series (volatility and inflation) to see their correlation. We hope to use the scipy library on our Jupyter notebook to make the calculation of our correlation metric seamless. To accompany the correlation metric, which is just a number, we will create data visualizations to demonstrate our theory.
 
 
 Constraints: There are some constraints we should keep in mind that could affect our analysis. First, this is a daily series, but it only includes prices on trading days when the market is actually open. This means the timeline will have gaps on weekends and holidays, which can complicate time series analysis if we expect perfectly consecutive dates. We will need to decide whether to fill the missing values, interpolate them, or just work around them.
@@ -36,6 +36,7 @@ We should also be aware that extreme events can create outliers that look like d
 Gaps:
 Regarding areas where we would require additional input we are wondering how we could implement a relational model in our process. We know that data cleaning and reproducibility will be important, even if we haven't covered that in lecture yet. However, we have covered relational models and we are still looking for a way to use that part of course content.
 Regarding data ethics and governance, we were hoping to mention the license that FRED uses for their data. We aren't sure if we should include that in our final report.
+
 
 
 
