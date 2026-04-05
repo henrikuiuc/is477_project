@@ -13,6 +13,14 @@ One of the problems we noticed is that the oil data has 56 missing values. I thi
 
 ----
 
+Update on background document work:
+
+Because this project is very related to finance work, we decided to write a document that describes the data the project concerns and what the goal of the project is. As of completing this status report, the background document first draft has been written. The document includes information about inflation and volatility, which are the two metrics we seek to compare in this project. We hope that with the information available, the project will be more useful to someone who doesn't have a background in business, economics, or finance.
+
+While the first draft is completed, one thing we want to add before the project is completed is a view of historical situations and explanations. For example, we want to add an explainer for oil volatility in the late 70s/early 80s, how that translated into inflation, and what the long term effects of the oil shock were. Not only will this give a real-world case where volatility and inflation are important, but it will also provide readers with a view of why establishing a relationship between volatility and inflation is important.
+
+----
+
 Changes to the project plan:
 So far, we have made no changes to the project plan that change our overall vision. We have created updates here to address the comments we got on our original plan. We are committed to using the two data sets we have selected and the tasks we want to do. We have completed the first versions of our background document and data pipeline by the time this document is completed.
 
