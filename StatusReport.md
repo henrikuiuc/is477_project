@@ -21,6 +21,17 @@ While the first draft is completed, one thing we want to add before the project 
 
 ----
 
+Update on volatility calculation:
+
+So far, work has not started on writing the code for the volatility calculation. However, we do know how volatility will be calculated.
+
+For this project, we want to capture volatility over a given period and compare it to inflation over a given period to establish if a relationship exists. Because we want to capture the effect of oil shocks, we need to be careful that we don't bury vital data.
+
+To calculate volatility, we will use a rolling window that looks back 20 trading days to calculate volatility for every day. After that, we will take the average of daily volatility for every month to get the monthly volatility. This allows us to more easily capture short periods of high volatility that would otherwise be buried if we did a simple annual calculation.
+
+
+----
+
 Changes to the project plan:
 So far, we have made no changes to the project plan that change our overall vision. We have created updates here to address the comments we got on our original plan. We are committed to using the two data sets we have selected and the tasks we want to do. We have completed the first versions of our background document and data pipeline by the time this document is completed.
 
