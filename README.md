@@ -6,3 +6,20 @@ A Repository for IS477 project.
 - Andres Bustamente
 
 # Summary
+
+
+# Data Profile
+
+# Data Quality
+
+# Data Cleaning
+
+# Findings
+
+# Future Work
+
+# Challenges
+
+# Reproducing (steps)
+
+# References (FRED Citations)
