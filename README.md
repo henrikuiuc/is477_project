@@ -94,4 +94,21 @@ The daily oil price data has missing values for weekends and holidays. When we f
 
 # Reproducing (steps)
 
-# References (FRED Citations)
+To reproduce our work, you only need a few files from our repository to get the same results we did. To make the process as simple as possible to follow, we will provide a list of steps to reproduce our results.
+
+1. Create a folder on your computer to hold the necessary files. The title isn’t important, but it may be useful to title it something relating to volatility.
+2. Go to the FRED website to get your API key:
+2a. If you already have a key, skip to step 4
+3. Create an account, then in the top right click on your profile, then API keys. Request an API key and fill out the form.
+4. Inside the folder you created, create a text file called “API_KEY.txt” and copy in your key from FRED on the first line.
+5. From GitHub, download “data_hashes.json” and “master.py” and put them inside your folder. The JSON is vital for the SHA256 hash check, and master.py is the entire workflow.
+6. In a terminal or cmd line, open the folder as your directory and run master.py. The format for Windows is python master.py.
+7. Once the workflow runs, it will return two pngs in your folders, which are the visualizations. The terminal will also show a printed statement about the linear regression model.
+8. All done!
+
+
+# References 
+
+U.S. Energy Information Administration, Crude Oil Prices: West Texas Intermediate (WTI) - Cushing, Oklahoma [DCOILWTICO], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/DCOILWTICO, May 5, 2026. 
+
+U.S. Bureau of Labor Statistics, Consumer Price Index for All Urban Consumers: All Items in U.S. City Average [CPIAUCSL], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/CPIAUCSL, May 5, 2026. 
