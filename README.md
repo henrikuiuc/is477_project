@@ -86,6 +86,11 @@ We calculated volatility from historical oil prices. But options-implied volatil
 Also, the relationship might not be linear. Very high volatility could trigger different inflation dynamics than mmoderate volatility. A simple check would be to add a sqauared term to the regression and see if it improves fit.
 
 # Challenges
+Early on, we were not sure whether to lag oil volatility behind inflation or ahead of it. The economic story i that volatility should precede inflation.
+
+We wanted to ensure data integrity, but we argued for a while about where in the pipeline to compute the hashes. We settled on hashing the raw, unmodified dataframes immediately after fetching from the API. That way, the hash checks that the source data has not changed, not our transformed version. If we hashed after cleaning, a change in our cleaning code would brake that hash even if the raw data was identical. This seems obvious in hindsight, but at the time it took us a few messy commits to figure out.
+
+The daily oil price data has missing values for weekends and holidays. When we first calculated log returns, pandas happily shifted prices across missing dates, which produced incorrect returns. We fixed this by ensuring the data was in a regular time index before calculating returns.
 
 # Reproducing (steps)
 
