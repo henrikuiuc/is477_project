@@ -23,6 +23,17 @@ Expected Inflation % Month over Month = 2.5% baseline inflation + 1.0284 * month
 Here, the baseline inflation in a way where 1% is written as 1, while volatility is passed into the model as decimals (30% volatility is 0.3).
 
 # Data Profile
+We used two main datasets in this project, both pulled from the Federal Reserve Economic Data API.
+
+Crude Oil Prices (WTI)
+This dataset contains the daily spot price of WTI crude oil, measured in USD per barrel. The data goes back to january 1986, but we started our analysis in January 1990 to align with cleaner CPI data. We chose WTI specifically because it is the primary US benchmark for oil prices, which made sense since we were using US inflation data. The raw data includes dates with no trading (weekdays, holidays) which show up as missing values. We kept those in during the fetch stage and handled them during cleaning.
+
+Consumer Price Index for All Urban Consumers
+This is a monthly series that tracks the average change in prices paid by urban consumers for a basket of goods and services. It is the most common measure of inflation in the US. The data is seasonally adjusted, which saved us from having to do that ourselves. Values are reported as an index number, so we had to convert it into month-over-month percentage changes to make it interpretable alongside votality.
+
+Both dataset were accessed using the same FRED API endpoint. We stored the raw API response as dataframes with data and value columns. For reproducibility, we hashed each dataset after import and compared against known good hashes
+
+Ethical and legal constraints: FRED data is freely available for academic and personal use. The API key we used is tied to a free FRED acount, and we have excluded our actual key from the public repo. No personally identifiable information or sensitive data is involved, so there are no privacy concerns.
 
 # Data Quality
 
