@@ -75,6 +75,15 @@ During the 2008 financial crisis, oil volatility spiked dramatically in late 200
 We visualize this relationshipin two plots. One is a time series overlay showing oil volatility and CPI. You can visually see volatility spikes preceding inflation bumps. The other one is a bar chart of correlation coefficients for lags 1 through 12, with clear peak at lag 3.
 
 # Future Work
+Right now, we did some basic works. But a quant trader might ask: can lagged oil volatility predict inflation well enough to trade inflation-linked assets? We could construct a simple long/short signal: if 3-month-lagged oil volatility is above a threshold, go long inflation protection. Then backtest that strategy over 1990-2023 to see if it beats a buy-and-hold benchmark. We suspect the signal-to-noise ratio is too low to be profitable after transaction costs, but it is worth testing.
+
+Also inflation is famously hard to predict. We could improve our model by adding more variables (while keeping other): Lagged inflation, interest rates, supply chain, exchange rates.
+
+Even a simple multiple linear regression with 2-5 predictors would likely have much higher R-squared than our current univariate model. From there, we can test whether oil volatility adds incremental predictive power beyond other variables.
+
+We calculated volatility from historical oil prices. But options-implied volatility captures market expectations of future volatility. That's a different economic concept, expected risk vs realized volatility or to uncertainty in the options market. Th echallenge: OVX data only goes back to 2007, so the sample would be much shorter.
+
+Also, the relationship might not be linear. Very high volatility could trigger different inflation dynamics than mmoderate volatility. A simple check would be to add a sqauared term to the regression and see if it improves fit.
 
 # Challenges
 
