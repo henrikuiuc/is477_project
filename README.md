@@ -16,8 +16,11 @@ After doing some visualizations showing the relationship between the correlation
 
 To implement our research question, we decided the best way to go about it was through a Python script. Both of us are familiar with Python thanks to our work in this class, other classes, and internships, so we thought it would be natural for us to continue with it as our tool. All work that isn’t final is stored on Jupyter notebooks due to easy testing, while the final version of the workflow is stored in a Python file named “master.py” to indicate its special status. In our file, the main library we utilized was Pandas due to its flexibility in data cleaning and merging. We used Matplotlib for outputting graphs (which are returned as PNGs when you run the file in a folder locally), and finally, we used Scikit-learn for a quick linear regression model.
 
+Our findings indicate that there is a weak, but noticeable, relationship between oil volatility and inflation. The relationship is especially noticeable when a 3-month lag is introduced in the volatility data. We believe this is because logistics companies usually purchase fuel ahead of time at set prices, so it takes time for oil price instability to have an effect on the prices of other goods. This is indicated by our linear regression model, which returns this equation: 
 
+Expected Inflation % Month over Month = 2.5% baseline inflation + 1.0284 * monthly oil volatility.
 
+Here, the baseline inflation in a way where 1% is written as 1, while volatility is passed into the model as decimals (30% volatility is 0.3).
 
 # Data Profile
 
