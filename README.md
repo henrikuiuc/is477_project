@@ -36,6 +36,19 @@ Both dataset were accessed using the same FRED API endpoint. We stored the raw A
 Ethical and legal constraints: FRED data is freely available for academic and personal use. The API key we used is tied to a free FRED acount, and we have excluded our actual key from the public repo. No personally identifiable information or sensitive data is involved, so there are no privacy concerns.
 
 # Data Quality
+We took data quality seriously because if the raw data changed without us knowing, our results would not be reproducible. The main quality check we implemented was SHA265 hashing.
+
+here is how it works: after fetching the oil and CPI data from the FRED API, we sort each dataframe by date, convert it to a JSON string in a consistent format, and run that string through SHA256 to generate a fixed-lenght hash. That hash acts like a fingerprint for the dataset. We then compare that fingerprint to a stored value inside data_hashes.json, which contains the correct hashes from when we first validated the data.
+
+If the hashes match, the script prints a confirmation and proceeds. if they do not match, the script raises a value error and stops immediately. this prevents us from accidentally running analysis on data that has been revised, corrected, or corrupted.
+
+Why would data change? the FRED API ocassionally revises historical series, CPI in particular gets adjusted when the Bureau of Labor Statistics releases nnew seasonal factors. Without hashing, we might run the same code a month later and get slightly different resuts without realizing it. Hashing makes that mismatch explicit.
+
+We chose SHA256 because it is widely used, collision-resistent, and fast enough for datasets of this size. The hash check adds negligible runtime, maybe 0.1 seconds total.
+
+One limitation we acknowledge: hashing only catches changes to the data, not whether the data was already wrong at the time we generated the reference hashes. We manually verified the reference data by spot-checking values against FRED's website before locking in the hashes. We also confirmed that there were no obvious outliers or impossible values.
+
+Noother formal data quality checks were implemented, though in retrospect we could have added checks for things like "CPI should never drop by more than 5% in a single month outside of extreme deflationary periods".
 
 # Data Cleaning
 
