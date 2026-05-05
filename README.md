@@ -51,6 +51,19 @@ One limitation we acknowledge: hashing only catches changes to the data, not whe
 Noother formal data quality checks were implemented, though in retrospect we could have added checks for things like "CPI should never drop by more than 5% in a single month outside of extreme deflationary periods".
 
 # Data Cleaning
+The raw data from FRED was not analysis-rwaddy, so we performed several cleaning operations. 
+
+Oil price data has missing values on days with no trading. We removed any row where the price was missing. This is safe because we later resample to monthly frequency, losing indivdual daily prices does not harm our monthly votality calculation as long as there is enough data within each month. Without this step, calculations like log returns would produce NaNs that cascade through the whole pipeline.
+
+We also computed daily log returns, then we grouped by calendar month, took the standar deviaton of daily log returns within each month, and annualized by multiplying by the square root of 252 (the typical number of trading days in a year). Months with very few trading days could produce less stable votality estimates, but given our multi-decade timespan, this effect averages out.
+
+CPI is released monthly, but the FRED API provides it with a date at the beginning of the month. To align with our monthly votality data, we resampled CPI. This picks the CPI value reported for that month and attaches it to the month-end date, making the merge clean.
+
+raw CPI is an index, not a return. We computed month-over-month percentage change, then annualized it, multiplied by 100 to express as a percentage. This puts inflation on a similar scale to annualized volatility, making comparisons and regressions more interpretable.
+
+When we joined monthly volatility and monthly CPI on date, some months had volatility but no CPI due to slight date mismatches in the resampling step. dropna() after the join removed those rows. We also dropped rows after shifting oil volatility by 3 months for the regression, that introduced NaNs at the start of the series, which we explicitly removed before fitting the model. The loss of three months out of several hundred is negligible.
+
+No imputation or interpolation was used. We preffered to lose a small amount of data rather than introduce assumptions.
 
 # Findings
 
