@@ -12,7 +12,11 @@ The initial motivation for this project was drawn from Henrik’s passion for fi
 
 To do this, we needed a way to get data for inflation and oil volatility. When researching alternatives for volatility data, we realized that we would need to calculate it ourselves since oil volatility indexes only became popular in the early 2000s. As a workaround, we decided to use widely available oil price data to calculate volatility ourselves. Because we would be working with American inflation data, we chose to calculate our volatility from WTI (West Texas Intermediate), which tracks the price of oil that is sourced within the United States. For inflation data, we will use the consumer price index, or CPI. The CPI tracks the price of a ‘basket’ of goods, and it is calculated and released monthly by the Federal Reserve. Fortunately, both sets of data can be retrieved using the same API, the same one we used for the S&P 500 assignment earlier this semester.
 
-To implement our research question (go into depth about python file)
+After doing some visualizations showing the relationship between the correlation between our two variables and the amount of “lag” in our volatility data, we realized that volatility has the greatest impact on inflation 3 months after the fact. Because of this, we fit our linear regression later in the project with data that is lagged by 3 months. This introduces 3 null values at the start of the data, which we believe doesn’t have a big impact on the model since the input size is so large.
+
+To implement our research question, we decided the best way to go about it was through a Python script. Both of us are familiar with Python thanks to our work in this class, other classes, and internships, so we thought it would be natural for us to continue with it as our tool. All work that isn’t final is stored on Jupyter notebooks due to easy testing, while the final version of the workflow is stored in a Python file named “master.py” to indicate its special status. In our file, the main library we utilized was Pandas due to its flexibility in data cleaning and merging. We used Matplotlib for outputting graphs (which are returned as PNGs when you run the file in a folder locally), and finally, we used Scikit-learn for a quick linear regression model.
+
+
 
 
 # Data Profile
