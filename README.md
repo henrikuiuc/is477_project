@@ -66,6 +66,13 @@ When we joined monthly volatility and monthly CPI on date, some months had volat
 No imputation or interpolation was used. We preffered to lose a small amount of data rather than introduce assumptions.
 
 # Findings
+Our main finding is that oil volatlity has a weak positive correlation with inflation, but only when we allow a lag of about three months. In the same month, the correlation was actually slightly negative, which initially confused us. After testing lags from 1 to 12 months , we found the strongest positive correlation at a 3-month lag, with a correlation coefficiet around.
+
+We then fit a linear regression using 3-month-lagged oil vlatility to predict month-over-month CPI change.
+
+During the 2008 financial crisis, oil volatility spiked dramatically in late 2008. Three months later, in early 2009, CPI month-over-month showed elevated readings despite oil prices having already fallen. Similarly, in early 2020, COVID caused massive oil price swings; by summer 2020, inflation began picking up. These case studies align with our statistical findings. 
+
+We visualize this relationshipin two plots. One is a time series overlay showing oil volatility and CPI. You can visually see volatility spikes preceding inflation bumps. The other one is a bar chart of correlation coefficients for lags 1 through 12, with clear peak at lag 3.
 
 # Future Work
 
